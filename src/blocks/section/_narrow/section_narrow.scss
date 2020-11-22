@@ -1,5 +1,4 @@
 .section_narrow {
-  max-width: 1080px;
   width: calc(100% - 100px * 2);
 
   @media screen and (max-width: 720px) {
@@ -12,5 +11,9 @@
 
   @media screen and (max-width: 325px) {
     width: calc(100% - 15px * 2);
+  }
+
+  @media screen and (max-width: 300px) {
+    width: 100%;
   }
 }
