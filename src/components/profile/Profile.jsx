@@ -1,11 +1,17 @@
+import './Profile.scss';
+import avatar from './../../images/profile-avatar.jpg';
+import gitImg from './../../images/profile-git.svg';
+
 const Profile = function () {
 	return (
-		<section className="profile">
-			<img src="#" alt="" className="profile__image" />
+		<section className="profile section section_narrow">
+			<img src={avatar} alt="Фото профиля." className="profile__avatar" />
 			<div className="profile__info">
-				<p className="profile__name">Oleg</p>
-				<p className="profile__mail">Zharov</p>
-				<a className="profile__button" type="button"></a>
+				<p className="profile__name">Oleg Zharov</p>
+				<p className="profile__mail">levineye@gmail.com</p>
+				<a className="profile__link" href="https://github.com/levineye13" target="_blanck">
+					<img className="profile__link-img" src={gitImg} alt="Значок Гитхаба." />
+				</a>
 			</div>
 		</section>
 	);
