@@ -1,6 +1,7 @@
 class Api {
-  constructor({ baseUrl }) {
+  constructor({ baseUrl, apiReposUrl }) {
     this._baseUrl = baseUrl;
+    this._apiReposUrl = apiReposUrl;
   }
 
   _checkValitidyRequest(responce) {
@@ -35,6 +36,9 @@ class Api {
   }
 }
 
-const api = new Api({ baseUrl: 'https://api.github.com/users/' });
+const api = new Api({
+  baseUrl: 'https://api.github.com/users/',
+  apiReposUrl: 'https://levineye13.github.io/',
+});
 
 export { api };
