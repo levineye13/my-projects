@@ -1,3 +1,6 @@
+$border-color: #c7c7c7;
+$border-position: -4px;
+
 @keyframes border-movement {
   100% {
     transform: rotate(360deg);
@@ -7,9 +10,6 @@
     -o-transform: rotate(360deg);
   }
 }
-
-$border-color: #c7c7c7;
-$border-position: -4px;
 
 @mixin img-config($max-width) {
   max-width: $max-width;
