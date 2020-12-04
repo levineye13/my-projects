@@ -8,8 +8,23 @@
   }
 }
 
+$border-color: #c7c7c7;
+$border-position: -4px;
+
+@mixin img-config($max-width) {
+  max-width: $max-width;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
 .profile {
-  $border-color: #c7c7c7;
+  box-sizing: border-box;
   background-color: #2b2b2b;
   color: #fff;
   font-family: 'Inter', 'Times New Roman', sans-serif;
@@ -24,7 +39,6 @@
   }
 
   &__avatar-wrapper {
-    box-sizing: border-box;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -38,10 +52,10 @@
     &::before {
       content: '';
       position: absolute;
-      left: -4px;
-      top: -4px;
-      bottom: -4px;
-      right: -4px;
+      left: $border-position;
+      top: $border-position;
+      bottom: $border-position;
+      right: $border-position;
       border: 4px dashed $border-color;
       border-radius: 50%;
       -webkit-border-radius: 50%;
@@ -50,28 +64,24 @@
       -o-border-radius: 50%;
       animation: border-movement 10s linear 0s infinite;
       -webkit-animation: border-movement 10s linear 0s infinite;
-      transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
-      -webkit-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
-      -moz-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
-      -ms-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
-      -o-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
+      transition: left 0.3s, top 0.3s, right 0.3s, bottom 0.3s;
+      -webkit-transition: left 0.3s, top 0.3s, right 0.3s, bottom 0.3s;
+      -moz-transition: left 0.3s, top 0.3s, right 0.3s, bottom 0.3s;
+      -ms-transition: left 0.3s, top 0.3s, right 0.3s, bottom 0.3s;
+      -o-transition: left 0.3s, top 0.3s, right 0.3s, bottom 0.3s;
     }
 
     &:hover::before {
       animation-duration: 5s;
-      left: -10px;
-      top: -10px;
-      right: -10px;
-      bottom: -10px;
+      left: $border-position * 2;
+      top: $border-position * 2;
+      right: $border-position * 2;
+      bottom: $border-position * 2;
     }
   }
 
   &__avatar {
-    max-width: 150px;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
+    @include img-config(150px);
   }
 
   &__info {
@@ -120,14 +130,6 @@
   }
 
   &__link-img {
-    max-width: 100%;
-    height: auto;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
+    @include img-config(100%);
   }
 }
