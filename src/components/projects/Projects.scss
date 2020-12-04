@@ -1,4 +1,5 @@
 $blick-position: 30px;
+$button-color: #2b2b2b;
 
 @keyframes button-blick {
   100% {
@@ -29,6 +30,9 @@ $blick-position: 30px;
 
   &__item {
     display: flex;
+    @media screen and (max-width: 720px) {
+      flex-direction: column;
+    }
 
     &:not(:last-child) {
       margin-bottom: 50px;
@@ -38,26 +42,36 @@ $blick-position: 30px;
   &__site {
     border: 2px solid #c7c7c7;
     min-height: 350px;
-    flex: 0 0 55%;
+    flex: 0 0 60%;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    @media screen and (max-width: 720px) {
+      flex-basis: 100%;
+    }
   }
 
   &__container {
-    flex: 0 0 45%;
+    flex: 0 0 40%;
     padding-left: 20px;
+    @media screen and (max-width: 720px) {
+      flex-basis: 100%;
+      padding: 0;
+      margin-top: 30px;
+    }
+    @media screen and (max-width: 480px) {
+      padding-left: 20px;
+    }
   }
 
   &__description {
     margin: 0;
     @include font-config(1.2em, 500, 1.2, #fff);
+    @media screen and (max-width: 480px) {
+      @include font-config(1em, 500, 1.1, #fff);
+    }
   }
 
   &__link {
-    @include font-config(1.1em, 500, 1.2, #2b2b2b);
+    @include font-config(1.1em, 500, 1.2, $button-color);
     display: inline-block;
     margin: 50px 0 0;
     background-color: #c7c7c7;
@@ -69,6 +83,12 @@ $blick-position: 30px;
     position: relative;
     overflow: hidden;
     transition: box-shadow 0.5s;
+    @media screen and (max-width: 720px) {
+      margin-top: 20px;
+    }
+    @media screen and (max-width: 480px) {
+      @include font-config(0.9em, 500, 1, $button-color);
+    }
 
     &:hover {
       box-shadow: 0 0 5px 3px rgb(130, 130, 130);
