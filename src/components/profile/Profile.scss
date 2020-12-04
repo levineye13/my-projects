@@ -1,3 +1,13 @@
+@keyframes border-movement {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
 .profile {
   $border-color: #c7c7c7;
   background-color: #2b2b2b;
@@ -13,20 +23,55 @@
     align-items: center;
   }
 
-  &__avatar {
+  &__avatar-wrapper {
+    box-sizing: border-box;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    position: relative;
+    @media screen and (max-width: 720px) {
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      bottom: -4px;
+      right: -4px;
+      border: 4px dashed $border-color;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      animation: border-movement 10s linear 0s infinite;
+      -webkit-animation: border-movement 10s linear 0s infinite;
+      transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
+      -webkit-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
+      -moz-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
+      -ms-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
+      -o-transition: left 0.3s, top 0.3s, rigth 0.3s, bottom 0.3s;
+    }
+
+    &:hover::before {
+      animation-duration: 5s;
+      left: -10px;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+    }
+  }
+
+  &__avatar {
     max-width: 150px;
     height: auto;
     object-fit: cover;
     object-position: center;
-    border: 2px solid $border-color;
-    @media screen and (max-width: 720px) {
-      margin-bottom: 20px;
-    }
+    border-radius: 50%;
   }
 
   &__info {

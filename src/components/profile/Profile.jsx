@@ -5,7 +5,9 @@ import gitImg from './../../images/profile-git.svg';
 const Profile = function () {
 	return (
 		<section className="profile section section_narrow page__profile">
-			<img src={avatar} alt="Фото профиля." className="profile__avatar" />
+			<div className="profile__avatar-wrapper">
+				<img src={avatar} alt="Фото профиля." className="profile__avatar" />
+			</div>
 			<div className="profile__info">
 				<p className="profile__name">Oleg Zharov</p>
 				<p className="profile__mail">levineye@gmail.com</p>
