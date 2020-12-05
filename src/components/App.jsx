@@ -3,7 +3,7 @@ import Profile from './profile/Profile';
 import Main from './content/Main';
 import Footer from './footer/Footer';
 import { api } from './../utils/api';
-import { UserContext } from './../context/UserContext';
+import { ProjectContext } from '../context/ProjectContext';
 import './App.scss';
 
 const App = function () {
@@ -19,7 +19,7 @@ const App = function () {
 	}, []);
 
 	return (
-		<UserContext.Provider value={projects}>
+		<ProjectContext.Provider value={projects}>
 			<div className="App">
 				<div className="page">
 					<Profile />
@@ -27,7 +27,7 @@ const App = function () {
 					<Footer />
 				</div>
 			</div>
-		</UserContext.Provider>
+		</ProjectContext.Provider>
   );
 };
 

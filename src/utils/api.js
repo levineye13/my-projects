@@ -1,5 +1,5 @@
 class Api {
-  constructor({ baseUrl, apiReposUrl }) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
     this._apiReposUrl = apiReposUrl;
   }
@@ -38,7 +38,6 @@ class Api {
 
 const api = new Api({
   baseUrl: 'https://api.github.com/users/',
-  apiReposUrl: 'https://levineye13.github.io/',
 });
 
 export { api };
