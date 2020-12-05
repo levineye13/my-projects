@@ -7,7 +7,7 @@ const Projects = function () {
 	const userContext = useContext(UserContext);
 
 	return (
-		<section className="projects">
+		<section className="projects section section_narrow content__projects">
 			<ul className="projects__list">
 				{userContext.length > 0 && userContext.map(item => <Project props={item} key={item.id} />)}
 			</ul>

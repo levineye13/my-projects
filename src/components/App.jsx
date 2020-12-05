@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Profile from './profile/Profile';
-import Main from './main/Main';
+import Main from './content/Main';
 import Footer from './footer/Footer';
 import { api } from './../utils/api';
 import { UserContext } from './../context/UserContext';

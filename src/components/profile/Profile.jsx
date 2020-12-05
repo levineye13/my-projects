@@ -4,7 +4,7 @@ import gitImg from './../../images/profile-git.svg';
 
 const Profile = function () {
 	return (
-		<section className="profile section section_narrow page__profile">
+		<section className="profile section page__profile">
 			<div className="profile__avatar-wrapper">
 				<img src={avatar} alt="Фото профиля." className="profile__avatar" />
 			</div>
