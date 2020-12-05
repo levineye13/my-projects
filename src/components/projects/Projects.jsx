@@ -9,7 +9,7 @@ const Projects = function () {
 	return (
 		<section className="projects section section_narrow content__projects">
 			<ul className="projects__list">
-				{projects.length > 0 && projects.map(item => <Project props={item} key={item.id} />)}
+				{projects && projects.map(item => <Project props={item} key={item.id} />)}
 			</ul>
 		</section>
 	);

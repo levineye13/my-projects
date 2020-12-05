@@ -4,29 +4,47 @@ import Main from './content/Main';
 import Footer from './footer/Footer';
 import { api } from './../utils/api';
 import { ProjectContext } from '../context/ProjectContext';
+import { UserContext } from '../context/UserContext';
+import { repos } from './../utils/constants';
 import './App.scss';
 
 const App = function () {
-	const [projects, setProjects] = useState([]);
+	const [user, setUser] = useState(null);
+	const [projects, setProjects] = useState(null);
+
+	useEffect(async () => {
+		try {
+      const userData = await api.getGithubUserInfo();
+      if (userData) {
+        setUser(userData);
+			}
+		} catch (err) {
+			console.error(err);
+		}
+	}, []);
 
 	useEffect(() => {
 		api.getGithubProjects()
 			.then(data => {
-				const resProjects = data.filter(item => item.name !== 'levineye13');
-				setProjects(resProjects);
+				const resProjects = data.filter(item => repos.includes(item.name));
+				if (resProjects) {
+					setProjects(resProjects);
+			  }
 			})
 			.catch(error => console.error(error));
 	}, []);
 
 	return (
 		<ProjectContext.Provider value={projects}>
-			<div className="App">
-				<div className="page">
-					<Profile />
-					<Main />
-					<Footer />
+			<UserContext.Provider value={user}>
+				<div className="App">
+					<div className="page">
+						<Profile />
+						<Main />
+						<Footer />
+					</div>
 				</div>
-			</div>
+			</UserContext.Provider>
 		</ProjectContext.Provider>
   );
 };

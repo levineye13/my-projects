@@ -1,7 +1,6 @@
 class Api {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
-    this._apiReposUrl = apiReposUrl;
   }
 
   _checkValitidyRequest(responce) {
