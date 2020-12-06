@@ -1,7 +1,7 @@
 import './Project.scss';
 
 const Project = function ({ props }) {
-	const { owner: { login }, name, description } = props;
+  const { owner: { login }, name, description } = props;
 	const projectUrl = `https://${login}.github.io/${name}`;
 
 	return (

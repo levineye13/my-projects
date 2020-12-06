@@ -22,6 +22,18 @@ class Api {
     return json;
   }
 
+  async getGithubUserEmail() {
+    const responce = await fetch(`${this._baseUrl}levineye13/events/public`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = this._checkValitidyRequest(responce);
+
+    return json;
+  }
+
   async getGithubProjects() {
     const responce = await fetch(`${this._baseUrl}levineye13/repos`, {
       method: 'GET',
@@ -32,6 +44,10 @@ class Api {
     const json = this._checkValitidyRequest(responce);
 
     return json;
+  }
+
+  async getUserData() {
+    return Promise.all([this.getGithubUserInfo(), this.getGithubUserEmail()]);
   }
 }
 
