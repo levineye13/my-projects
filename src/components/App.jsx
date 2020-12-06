@@ -12,30 +12,38 @@ const App = function () {
 	const [user, setUser] = useState(null);
 	const [projects, setProjects] = useState(null);
 
-  useEffect(async () => {
-    try {
-      const userData = await api.getUserData();
-      if (userData) {
-        const [info, data] = userData;
-        const { name, avatar_url } = info;
-        const email = data[0].payload.commits[0].author.email;
-        setUser({ name, avatar_url, email });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userData = await api.getUserData();
+        if (userData) {
+          const [info, data] = userData;
+          const { name, avatar_url } = info;
+          const email = data[0].payload.commits[0].author.email;
+          setUser({ name, avatar_url, email });
+        }
+      } catch (err) {
+        console.error(err);
       }
-		} catch (err) {
-			console.error(err);
-		}
+    };
+
+    fetchData();
 	}, []);
 
-	useEffect(async () => {
-    try {
-      const projects = await api.getGithubProjects();
-      const displayedProjects = projects.filter(item => repos.includes(item.name));
-      if (displayedProjects) {
-        setProjects(displayedProjects);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const projects = await api.getGithubProjects();
+        const displayedProjects = projects.filter(item => repos.includes(item.name));
+        if (displayedProjects) {
+          setProjects(displayedProjects);
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
-    }
+    };
+
+    fetchData();
 	}, []);
 
 	return (
