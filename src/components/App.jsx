@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
+import { setUserData } from './../redux/actions'
 import Profile from './profile/Profile';
 import Main from './content/Main';
 import Footer from './footer/Footer';
 import { api } from './../utils/api';
-import { UserContext } from '../context/UserContext';
 import { repos } from './../utils/constants';
 import './App.scss';
 
 const App = function () {
-	const [user, setUser] = useState(null);
 	const [projects, setProjects] = useState(null);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const App = function () {
           const [info, data] = userData;
           const { name, avatar_url } = info;
           const email = data[0].payload.commits[0].author.email;
-          setUser({ name, avatar_url, email });
+          store.dispatch(setUserData({name, email, avatar_url}));
         }
       } catch (err) {
         console.error(err);
@@ -46,15 +47,15 @@ const App = function () {
 	}, []);
 
 	return (
-    <UserContext.Provider value={user}>
+    <Provider store={store}>
       <div className="App">
         <div className="page">
           <Profile />
-          <Main arrProjects={projects} />
+          <Main projects={projects} />
           <Footer />
         </div>
       </div>
-    </UserContext.Provider>
+    </Provider>
   );
 };
 

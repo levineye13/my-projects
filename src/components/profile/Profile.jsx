@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import { UserContext } from './../../context/UserContext';
+import React from 'react';
+import { connect } from 'react-redux';
 import './Profile.scss';
 import avatar from './../../images/image-not-found.jpg';
 import gitImg from './../../images/profile-git.svg';
 
-const Profile = function () {
-  const userInfo = useContext(UserContext);
-  const { name, email, avatar_url } = userInfo || '';
+const Profile = function ({ user }) {
+  const { name, email, avatar_url } = user;
 
 	return (
 		<section className="profile section page__profile">
@@ -14,8 +13,8 @@ const Profile = function () {
 				<img src={avatar_url || avatar} alt="Фото профиля." className="profile__avatar" />
 			</div>
 			<div className="profile__info">
-        <p className="profile__name">{name || 'name'}</p>
-        <p className="profile__mail">{email || 'email'}</p>
+        <p className="profile__name">{name}</p>
+        <p className="profile__mail">{email}</p>
 				<a className="profile__link" href="https://github.com/levineye13" target="_blanck">
 					<img className="profile__link-img" src={gitImg} alt="Значок Гитхаба." />
 				</a>
@@ -24,4 +23,10 @@ const Profile = function () {
 	);
 }
 
-export default Profile;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps, null)(Profile);
