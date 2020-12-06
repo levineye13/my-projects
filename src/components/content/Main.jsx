@@ -1,10 +1,10 @@
 import Projects from '../projects/Projects';
 import './Main.scss';
 
-const Main = function () {
+const Main = function ({arrProjects}) {
 	return (
 		<main className="content section page__content">
-			<Projects />
+			<Projects arrProjects={arrProjects} />
 		</main>
 	);
 }
