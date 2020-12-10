@@ -1,0 +1,42 @@
+.skills {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__list {
+  }
+
+  &__item {
+  }
+
+  &__subtitle {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__sublist {
+    display: flex;
+  }
+
+  &__subitem {
+  }
+
+  &__link {
+    max-height: 100%;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    height: 30px;
+    width: 30px;
+    //max-height: 100%;
+  }
+}
