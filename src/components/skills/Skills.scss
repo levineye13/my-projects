@@ -1,42 +1,98 @@
-.skills {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+$text-color: #fff;
+$technologies: (
+  "html": #ff4500,
+  "css": #1e90ff,
+  "javascript": #ff0,
+  "react": #00bfff,
+  "express": #ffa500,
+  "sass": #ff69b4,
+  "webpack": #87ceeb,
+  "git": #ff4500,
+  "github": #ffffe0,
+  "vscode": #2489ca,
+  "node": #8cc84b,
+  "redux": #764abc,
+);
+
+@mixin list-config($margin, $padding, $type) {
+  margin: $margin;
+  padding: $padding;
+  list-style-type: $type;
+}
+
+@mixin font-config($size, $weight, $lh, $color) {
+  font: {
+    size: $size;
+    weight: $weight;
   }
+  line-height: $lh;
+  color: $color;
+}
+
+.skills {
+  $main: &;
 
   &__list {
+    @include list-config(0, 0, none);
   }
 
   &__item {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
   }
 
   &__subtitle {
     margin: 0;
-    color: #fff;
-    font-size: 1.5em;
-    font-weight: 500;
-    line-height: 1.2;
+    @include font-config(2em, 500, 1.2, $text-color);
   }
 
   &__sublist {
+    @include list-config(0px, 15px 0, none);
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__subitem {
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
   }
 
   &__link {
+    box-sizing: border-box;
+    padding: 5px;
     max-height: 100%;
     text-decoration: none;
-    color: #fff;
     display: flex;
     align-items: center;
+    @include font-config(1.2em, 400, 1.4, $text-color);
+
+    // &:hover {
+    //   #{$main}__img,
+    //   #{$main}__img > path {
+    //     fill: #fff;
+    //   }
+    // }
+    // &:hover {
+    //   #{$main}__img_type_#{$type} {
+    //     @if #{$type} == html {
+    //       fill: red;
+    //     }
+    //   }
+    // }
   }
 
   &__img {
     height: 30px;
     width: 30px;
+    margin-right: 10px;
     //max-height: 100%;
+
+    @each $technology, $color in $technologies {
+      &_type_#{$technology} {
+        fill: $color;
+      }
+    }
   }
 }
