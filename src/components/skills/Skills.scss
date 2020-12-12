@@ -61,38 +61,37 @@ $technologies: (
 
   &__link {
     box-sizing: border-box;
-    padding: 5px;
+    padding: 10px;
     max-height: 100%;
     text-decoration: none;
     display: flex;
     align-items: center;
-    @include font-config(1.2em, 400, 1.4, $text-color);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 2px #fff;
+    transition: background-color 0.3s;
 
-    // &:hover {
-    //   #{$main}__img,
-    //   #{$main}__img > path {
-    //     fill: #fff;
-    //   }
-    // }
-    // &:hover {
-    //   #{$main}__img_type_#{$type} {
-    //     @if #{$type} == html {
-    //       fill: red;
-    //     }
-    //   }
-    // }
+    &:hover {
+      background-color: rgba($color: #fff, $alpha: 0.1);
+    }
+
+    @each $technology, $color in $technologies {
+      #{$main}__img_type_#{$technology} {
+        fill: $color;
+      }
+
+      #{$main}__text_type_#{$technology} {
+        color: $color;
+      }
+    }
   }
 
   &__img {
     height: 30px;
     width: 30px;
     margin-right: 10px;
-    //max-height: 100%;
+  }
 
-    @each $technology, $color in $technologies {
-      &_type_#{$technology} {
-        fill: $color;
-      }
-    }
+  &__text {
+    @include font-config(1.2em, 400, 1.4, $text-color);
   }
 }
