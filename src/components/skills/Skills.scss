@@ -1,4 +1,4 @@
-$text-color: #fff;
+$main-color: #fff;
 $technologies: (
   "html": #ff4500,
   "css": #1e90ff,
@@ -44,7 +44,7 @@ $technologies: (
 
   &__subtitle {
     margin: 0;
-    @include font-config(2em, 500, 1.2, $text-color);
+    @include font-config(2em, 500, 1.2, $main-color);
   }
 
   &__sublist {
@@ -67,11 +67,11 @@ $technologies: (
     display: flex;
     align-items: center;
     border-radius: 5px;
-    box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px $main-color;
     transition: background-color 0.3s;
 
     &:hover {
-      background-color: rgba($color: #fff, $alpha: 0.1);
+      background-color: rgba($color: $main-color, $alpha: 0.1);
     }
 
     @each $technology, $color in $technologies {
@@ -92,6 +92,6 @@ $technologies: (
   }
 
   &__text {
-    @include font-config(1.2em, 400, 1.4, $text-color);
+    @include font-config(1.2em, 400, 1.4, $main-color);
   }
 }
