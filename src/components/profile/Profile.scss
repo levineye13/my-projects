@@ -21,12 +21,21 @@ $border-position: -4px;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
+  user-select: none;
+}
+
+@mixin font-config($size, $weight, $lh, $color) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  line-height: $lh;
+  color: $color;
 }
 
 .profile {
   box-sizing: border-box;
   background-color: #2b2b2b;
-  color: #fff;
   font-family: "Inter", "Times New Roman", sans-serif;
   border-bottom: 1px solid $border-color;
   display: flex;
@@ -82,7 +91,6 @@ $border-position: -4px;
 
   &__avatar {
     @include img-config(150px);
-    user-select: none;
   }
 
   &__info {
@@ -96,16 +104,12 @@ $border-position: -4px;
 
   &__name {
     margin: 0;
-    font-size: 1.5em;
-    font-weight: 500;
-    line-height: 1.2;
+    @include font-config(1.5em, 500, 1.2, #fff);
   }
 
   &__mail {
     margin: 15px 0;
-    font-size: 1.2em;
-    font-weight: 400;
-    line-height: 1.2;
+    @include font-config(1.2em, 400, 1.2, #fff);
   }
 
   &__link {
