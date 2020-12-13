@@ -32,6 +32,10 @@ $technologies: (
 .skills {
   $main: &;
 
+  &__section-title {
+    margin-bottom: 35px;
+  }
+
   &__list {
     @include list-config(0, 0, none);
   }
@@ -45,18 +49,30 @@ $technologies: (
   &__subtitle {
     margin: 0;
     @include font-config(2em, 500, 1.2, $main-color);
+    @media screen and (max-width: 720px) {
+      font-size: 1.6em;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 1.4em;
+    }
   }
 
   &__sublist {
-    @include list-config(0px, 15px 0, none);
+    @include list-config(0px, 15px 0 0, none);
     display: flex;
     flex-wrap: wrap;
+    @media screen and (max-width: 480px) {
+      padding-left: 20px;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+    }
   }
 
   &__subitem {
     &:not(:last-child) {
       margin-right: 30px;
     }
+    margin-bottom: 20px;
   }
 
   &__link {
@@ -89,9 +105,17 @@ $technologies: (
     height: 30px;
     width: 30px;
     margin-right: 10px;
+    @media screen and (max-width: 480px) {
+      height: 25px;
+      width: 25px;
+    }
   }
 
   &__text {
     @include font-config(1.2em, 400, 1.4, $main-color);
+    @media screen and (max-width: 480px) {
+      font-size: 1.1em;
+      line-height: 1.2;
+    }
   }
 }

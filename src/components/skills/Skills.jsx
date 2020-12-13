@@ -5,7 +5,7 @@ import './Skills.scss';
 const Skills = function () {
   return (
     <section className="skills section section_narrow content__skills">
-      <SectionTitle text={'Навыки'} className='' />
+      <SectionTitle text={'Навыки'} className='skills__section-title' />
       <ul className="skills__list">
         <li className="skills__item">
           <h3 className="skills__subtitle">Языки</h3>
