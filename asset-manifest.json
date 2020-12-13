@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/my-projects/static/css/main.1fa3f740.chunk.css",
-    "main.js": "/my-projects/static/js/main.5fd741cf.chunk.js",
-    "main.js.map": "/my-projects/static/js/main.5fd741cf.chunk.js.map",
+    "main.css": "/my-projects/static/css/main.78ac0cca.chunk.css",
+    "main.js": "/my-projects/static/js/main.b566af18.chunk.js",
+    "main.js.map": "/my-projects/static/js/main.b566af18.chunk.js.map",
     "runtime-main.js": "/my-projects/static/js/runtime-main.b46ba62d.js",
     "runtime-main.js.map": "/my-projects/static/js/runtime-main.b46ba62d.js.map",
     "static/js/2.9e1962dc.chunk.js": "/my-projects/static/js/2.9e1962dc.chunk.js",
     "static/js/2.9e1962dc.chunk.js.map": "/my-projects/static/js/2.9e1962dc.chunk.js.map",
     "index.html": "/my-projects/index.html",
-    "static/css/main.1fa3f740.chunk.css.map": "/my-projects/static/css/main.1fa3f740.chunk.css.map",
+    "static/css/main.78ac0cca.chunk.css.map": "/my-projects/static/css/main.78ac0cca.chunk.css.map",
     "static/js/2.9e1962dc.chunk.js.LICENSE.txt": "/my-projects/static/js/2.9e1962dc.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/my-projects/static/media/Inter-Regular.fc49d131.woff",
     "static/media/image-not-found.8a4eb187.jpg": "/my-projects/static/media/image-not-found.8a4eb187.jpg",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.b46ba62d.js",
     "static/js/2.9e1962dc.chunk.js",
-    "static/css/main.1fa3f740.chunk.css",
-    "static/js/main.5fd741cf.chunk.js"
+    "static/css/main.78ac0cca.chunk.css",
+    "static/js/main.b566af18.chunk.js"
   ]
 }
