@@ -8,7 +8,7 @@ const Profile = function ({ user }) {
   const { name, email, avatar_url } = user;
 
 	return (
-		<section className="profile section page__profile">
+		<section className="profile section content__profile">
 			<div className="profile__avatar-wrapper">
 				<img src={avatar_url || avatar} alt="Фото профиля." className="profile__avatar" />
 			</div>

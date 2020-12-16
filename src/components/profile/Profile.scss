@@ -37,9 +37,12 @@ $border-position: -4px;
   box-sizing: border-box;
   background-color: #2b2b2b;
   font-family: "Inter", "Times New Roman", sans-serif;
-  border-bottom: 1px solid $border-color;
+  border: {
+    top: 1px solid $border-color;
+    bottom: 1px solid $border-color;
+  }
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 20px 0;
   position: relative;
   overflow: hidden;

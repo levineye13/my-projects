@@ -10,7 +10,7 @@ const Project = function ({ props }) {
       <div className="projects__container">
         <h3 className="projects__name">{ name }</h3>
 				<p className="projects__description">{ description }</p>
-				<a className="projects__link" href={projectUrl} target="_blank">Посмотреть</a>
+				<a className="projects__link" href={projectUrl} target="_blank" rel="noreferrer">Посмотреть</a>
 			</div>
 		</li>
 	);

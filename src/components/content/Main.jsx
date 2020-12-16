@@ -1,10 +1,12 @@
+import Profile from '../profile/Profile';
 import Projects from '../projects/Projects';
 import Skills from '../skills/Skills';
 import './Main.scss';
 
 const Main = function ({projects}) {
 	return (
-		<main className="content section page__content">
+    <main className="content section page__content">
+      <Profile />
       <Projects projects={projects} />
       <Skills />
 		</main>
