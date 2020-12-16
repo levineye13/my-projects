@@ -19,7 +19,8 @@ const App = function () {
         if (userData) {
           const [info, data] = userData;
           const { name, avatar_url } = info;
-          const email = data[0].payload.commits[0].author.email;
+          const event = data.find((item) => item.type === 'PushEvent');
+          const { email } = event.payload.commits[0].author;
           store.dispatch(setUserData({name, email, avatar_url}));
         }
       } catch (err) {
