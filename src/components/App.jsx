@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 import { setUserData } from './../redux/actions'
+import Header from './header/Header';
 import Main from './content/Main';
 import Footer from './footer/Footer';
 import { api } from './../utils/api';
@@ -50,6 +51,7 @@ const App = function () {
     <Provider store={store}>
       <div className="App">
         <div className="page">
+          <Header />
           <Main projects={projects} />
           <Footer />
         </div>
