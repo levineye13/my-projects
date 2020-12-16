@@ -7,7 +7,8 @@ const Project = function ({ props }) {
 	return (
 		<li className="projects__item">
 			<iframe className="projects__site" src={projectUrl}></iframe>
-			<div className="projects__container">
+      <div className="projects__container">
+        <h3 className="projects__name">{ name }</h3>
 				<p className="projects__description">{ description }</p>
 				<a className="projects__link" href={projectUrl} target="_blank">Посмотреть</a>
 			</div>
