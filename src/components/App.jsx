@@ -1,27 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { store } from '../redux/store';
-import { setUserData } from './../redux/actions'
-import Header from './header/Header';
-import Main from './content/Main';
-import Footer from './footer/Footer';
-import { api } from './../utils/api';
-import { repos } from './../utils/constants';
-import './App.scss';
+import React, { useState, useEffect } from "react";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
+import { setUserData } from "./../redux/actions";
+import Header from "./header/Header";
+import Main from "./content/Main";
+import Footer from "./footer/Footer";
+import { api } from "./../utils/api";
+import { repos } from "./../utils/constants";
+import "./App.scss";
 
-const App = function () {
-	const [projects, setProjects] = useState(null);
+const App = () => {
+  const [projects, setProjects] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await api.getUserData();
+        const userData = await api.getUser();
         if (userData) {
-          const [info, data] = userData;
-          const { name, avatar_url } = info;
-          const event = data.find((item) => item.type === 'PushEvent');
-          const { email } = event.payload.commits[0].author;
-          store.dispatch(setUserData({name, email, avatar_url}));
+          const { name, email, avatar_url } = userData;
+          store.dispatch(setUserData({ name, email, avatar_url }));
         }
       } catch (err) {
         console.error(err);
@@ -29,13 +26,15 @@ const App = function () {
     };
 
     fetchData();
-	}, []);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const projects = await api.getGithubProjects();
-        const displayedProjects = projects.filter(item => repos.includes(item.name));
+        const projects = await api.getRepositories();
+        const displayedProjects = projects.filter((item) =>
+          repos.includes(item.name)
+        );
         if (displayedProjects) {
           setProjects(displayedProjects);
         }
@@ -43,11 +42,10 @@ const App = function () {
         console.error(err);
       }
     };
-
     fetchData();
-	}, []);
+  }, []);
 
-	return (
+  return (
     <Provider store={store}>
       <div className="App">
         <div className="page">
