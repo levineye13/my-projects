@@ -1,58 +1,45 @@
+import { GITHUB_API_BASE_URL, HTTP_METHODS } from './constants';
+
 class Api {
-  constructor({ baseUrl }) {
+  constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
+    this._headers = headers;
   }
 
-  _checkValitidyRequest(responce) {
+  _checkRequest(responce) {
     if (responce.ok) {
       return responce.json();
     }
     return Promise.reject(new Error(`Ошибка: ${responce.status}`));
   }
 
-  async getGithubUserInfo() {
-    const responce = await fetch(`${this._baseUrl}levineye13`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  async getUser() {
+    const responce = await fetch(`${this._baseUrl}/user`, {
+      method: HTTP_METHODS.GET,
+      headers: this._headers,
     });
-    const json = this._checkValitidyRequest(responce);
+    const json = this._checkRequest(responce);
 
     return json;
   }
 
-  async getGithubUserEmail() {
-    const responce = await fetch(`${this._baseUrl}levineye13/events/public`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  async getRepositories() {
+    const responce = await fetch(`${this._baseUrl}/user/repos`, {
+      method: HTTP_METHODS.GET,
+      headers: this._headers,
     });
-    const json = this._checkValitidyRequest(responce);
+    const json = this._checkRequest(responce);
 
     return json;
-  }
-
-  async getGithubProjects() {
-    const responce = await fetch(`${this._baseUrl}levineye13/repos`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = this._checkValitidyRequest(responce);
-
-    return json;
-  }
-
-  async getUserData() {
-    return Promise.all([this.getGithubUserInfo(), this.getGithubUserEmail()]);
   }
 }
 
 const api = new Api({
-  baseUrl: 'https://api.github.com/users/',
+  baseUrl: GITHUB_API_BASE_URL,
+  headers: {
+    Accept: 'application/vnd.github.v3+json',
+    Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
+  },
 });
 
 export { api };
