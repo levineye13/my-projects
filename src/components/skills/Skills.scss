@@ -13,6 +13,9 @@ $technologies: (
   "node": #8cc84b,
   "redux": #764abc,
   "mongoose": #8b0000,
+  "mongodb": #589636,
+  "postgresql": #336791,
+  "sequelize": #03afef,
 );
 
 @mixin list-config($margin, $padding, $type) {
