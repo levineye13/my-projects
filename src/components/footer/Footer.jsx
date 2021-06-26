@@ -1,11 +1,13 @@
-import './Footer.scss';
+import "./Footer.scss";
 
 const Footer = function () {
-	return (
-		<footer className="footer section page__footer">
-			<p className="footer__copyright">&copy; Олег Жаров. 2020.</p>
-		</footer>
-	);
-}
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="footer section page__footer">
+      <p className="footer__copyright">&copy; Олег Жаров. {currentYear}.</p>
+    </footer>
+  );
+};
 
 export default Footer;
