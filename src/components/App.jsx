@@ -5,7 +5,7 @@ import { setUserData } from "./../redux/actions";
 import Header from "./header/Header";
 import Main from "./content/Main";
 import Footer from "./footer/Footer";
-import { api } from "./../utils/api";
+import { mainApi, githubApi } from "../utils/api";
 import { repos } from "./../utils/constants";
 import "./App.scss";
 
@@ -15,35 +15,46 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userData = await api.getUser();
-        if (userData) {
-          const { name, email, avatar_url } = userData;
-          store.dispatch(setUserData({ name, email, avatar_url }));
+        const { token } = await mainApi.getToken();
+
+        if (token) {
+          await getUser(token);
+          await getRepos(token);
         }
       } catch (err) {
-        console.error(err);
+        console.log(err);
       }
     };
 
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const projects = await api.getRepositories();
-        const displayedProjects = projects.filter((item) =>
-          repos.includes(item.name)
-        );
-        if (displayedProjects) {
-          setProjects(displayedProjects);
-        }
-      } catch (err) {
-        console.error(err);
+  const getUser = async (token) => {
+    try {
+      const userData = await githubApi.getUser(token);
+
+      if (userData) {
+        const { name, email, avatar_url } = userData;
+        store.dispatch(setUserData({ name, email, avatar_url }));
       }
-    };
-    fetchData();
-  }, []);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const getRepos = async (token) => {
+    try {
+      const projects = await githubApi.getRepositories(token);
+      const displayedProjects = projects.filter((item) =>
+        repos.includes(item.name)
+      );
+      if (displayedProjects) {
+        setProjects(displayedProjects);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <Provider store={store}>
