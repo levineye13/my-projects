@@ -5,7 +5,6 @@ const GitHubApi = (instance) => {
     try {
       instance.defaults.headers.common['Authorization'] = `token ${token}`;
       const res = await instance.get('/user');
-      console.log(res);
       return res.data;
     } catch (err) {
       handleError(err);
