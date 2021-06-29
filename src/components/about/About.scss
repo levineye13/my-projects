@@ -11,55 +11,64 @@ $main-color: #fff;
 
 .about {
   font-family: "Inter", "Times New Roman", sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas:
-    "title title"
-    "button button"
-    "description description"
-    "avatar list";
-  gap: 30px 15px;
-
-  &__section-title {
-    grid-area: title;
-  }
+  display: flex;
+  flex-direction: column;
 
   &__back {
-    grid-area: button;
-    justify-self: start;
+    align-self: flex-start;
     border: 0;
     outline: 0;
     padding: 0;
     background-color: transparent;
     color: #fff;
-    @include font-config(18px, 500, 1.2, $main-color);
+    @include font-config(1.125em, 500, 1.2, $main-color);
     cursor: pointer;
     transition: opacity 0.3s;
 
     &:hover {
       opacity: 0.7;
     }
+
+    @media screen and (max-width: 720px) {
+      font-size: 1em;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.8em;
+    }
   }
 
   &__description {
-    grid-area: description;
-    @include font-config(20px, 500, 1.2, $main-color);
-    margin: 0;
+    @include font-config(1.25em, 500, 1.2, $main-color);
+    margin: 30px 0 0;
+
+    @media screen and (max-width: 480px) {
+      margin-top: 15px;
+    }
   }
 
   &__link {
-    @include font-config(20px, 500, 1.2, $main-color);
+    @include font-config(1.25em, 500, 1.2, $main-color);
+  }
+
+  &__container {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+
+    @media screen and (max-width: 480px) {
+      margin-top: 15px;
+    }
   }
 
   &__avatar {
-    grid-area: avatar;
-    max-width: 100%;
+    width: 40%;
+    max-width: 400px;
     height: auto;
   }
 
   &__list {
-    grid-area: list;
-    margin: 0;
+    margin: 0 0 0 20px;
     padding: 0;
     list-style-type: none;
   }
@@ -70,6 +79,18 @@ $main-color: #fff;
 
   &__text {
     margin: 0;
-    @include font-config(20px, 500, 1.2, $main-color);
+    @include font-config(1.25em, 500, 1.2, $main-color);
+  }
+
+  &__description,
+  &__link,
+  &__text {
+    @media screen and (max-width: 720px) {
+      font-size: 1.125em;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.875em;
+    }
   }
 }

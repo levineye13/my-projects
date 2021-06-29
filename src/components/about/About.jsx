@@ -14,7 +14,7 @@ const About = ({ user }) => {
 
   return (
     <section className="about">
-      <SectionTitle text="Обо мне" className="about__section-title" />
+      <SectionTitle text="Обо мне" />
       <button className="about__back" type="button" onClick={history.goBack}>
         &larr; Назад
       </button>
@@ -27,18 +27,20 @@ const About = ({ user }) => {
         </a>{" "}
         Увлекаюсь программированием, игрой на гитаре.
       </p>
-      <img className="about__avatar" src={avatar_url} alt="Аватарка" />
-      <ul className="about__list">
-        <li className="about__item">
-          <p className="about__text">Языки: Русский</p>
-        </li>
-        <li className="about__item">
-          <p className="about__text">Возраст: {age || ""}</p>
-        </li>
-        <li className="about__item">
-          <p className="about__text">Образование: высшее</p>
-        </li>
-      </ul>
+      <div className="about__container">
+        <img className="about__avatar" src={avatar_url} alt="Аватарка" />
+        <ul className="about__list">
+          <li className="about__item">
+            <p className="about__text">Языки: Русский</p>
+          </li>
+          <li className="about__item">
+            <p className="about__text">Возраст: {age || ""}</p>
+          </li>
+          <li className="about__item">
+            <p className="about__text">Образование: высшее</p>
+          </li>
+        </ul>
+      </div>
     </section>
   );
 };
