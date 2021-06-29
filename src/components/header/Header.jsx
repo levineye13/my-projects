@@ -63,7 +63,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <ProgressBar mix="header__progress-bar" width={progress} />
+      <ProgressBar mix="header__progress-bar" progress={progress.percents} />
     </header>
   );
 };
