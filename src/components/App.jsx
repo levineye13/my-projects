@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { setUserData } from "./../redux/actions";
 import Header from "./header/Header";
 import Main from "./content/Main";
 import Footer from "./footer/Footer";
+import About from "./about/About";
 import { mainApi, githubApi } from "../utils/api";
-import { repos } from "./../utils/constants";
+import { repos, PATHNAME } from "./../utils/constants";
 import "./App.scss";
+
+const { root, about } = PATHNAME;
 
 const App = () => {
   const [projects, setProjects] = useState(null);
@@ -61,7 +65,14 @@ const App = () => {
       <div className="App">
         <div className="page">
           <Header />
-          <Main projects={projects} />
+          <Switch>
+            <Route exact path={root}>
+              <Main mix="section page__content" projects={projects} />
+            </Route>
+            <Route path={about}>
+              <About mix="section page__about" />
+            </Route>
+          </Switch>
           <Footer />
         </div>
       </div>

@@ -39,7 +39,7 @@ $main-color: #fff;
   }
 
   &__description {
-    @include font-config(1.25em, 500, 1.2, $main-color);
+    @include font-config(1.25em, 500, 1.4, $main-color);
     margin: 30px 0 0;
 
     @media screen and (max-width: 480px) {
@@ -48,7 +48,8 @@ $main-color: #fff;
   }
 
   &__link {
-    @include font-config(1.25em, 500, 1.2, $main-color);
+    color: $main-color;
+    white-space: nowrap;
   }
 
   &__container {

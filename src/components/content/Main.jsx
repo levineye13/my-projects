@@ -3,9 +3,9 @@ import Projects from "../projects/Projects";
 import Skills from "../skills/Skills";
 import "./Main.scss";
 
-const Main = ({ projects }) => {
+const Main = ({ mix = "", projects }) => {
   return (
-    <main className="content section page__content">
+    <main className={`content ${mix}`}>
       <Profile />
       <Projects projects={projects} />
       <Skills />

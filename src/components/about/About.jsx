@@ -6,14 +6,14 @@ import { getAge } from "../../utils/utils";
 import { YANDEX_LINK } from "../../utils/constants";
 import "./About.scss";
 
-const About = ({ user }) => {
+const About = ({ user, mix = "" }) => {
   const { avatar_url } = user;
   const history = useHistory();
 
   const age = getAge("1999.04.13");
 
   return (
-    <section className="about">
+    <section className={`about ${mix}`}>
       <SectionTitle text="Обо мне" />
       <button className="about__back" type="button" onClick={history.goBack}>
         &larr; Назад
