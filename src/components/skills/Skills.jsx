@@ -4,7 +4,10 @@ import "./Skills.scss";
 
 const Skills = () => {
   return (
-    <section className="skills section section_narrow content__skills">
+    <section
+      className="skills section section_narrow content__skills"
+      id="skills"
+    >
       <SectionTitle text={"Навыки"} className="skills__section-title" />
       <ul className="skills__list">
         <li className="skills__item">
@@ -15,6 +18,7 @@ const Skills = () => {
                 href="http://htmlbook.ru"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +37,7 @@ const Skills = () => {
                 href="http://htmlbook.ru/samcss"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -49,6 +54,7 @@ const Skills = () => {
                 href="https://developer.mozilla.org/ru/docs/Web/JavaScript"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -67,6 +73,7 @@ const Skills = () => {
                 href="https://nodejs.org/en"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,6 +98,7 @@ const Skills = () => {
                 href="https://ru.reactjs.org"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +117,7 @@ const Skills = () => {
                 href="http://expressjs.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -127,6 +136,7 @@ const Skills = () => {
                 href="https://sass-lang.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +155,7 @@ const Skills = () => {
                 href="https://mongoosejs.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -164,6 +175,7 @@ const Skills = () => {
                 href="https://sequelize.org"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   viewBox="0 0 256 296"
@@ -294,6 +306,7 @@ const Skills = () => {
                 href="https://www.mongodb.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   viewBox="0 0 32 32"
@@ -323,6 +336,7 @@ const Skills = () => {
                 href="https://www.postgresql.org"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   viewBox="0 0 25.6 25.6"
@@ -393,6 +407,7 @@ const Skills = () => {
                 href="https://webpack.js.org"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -420,6 +435,7 @@ const Skills = () => {
                 href="https://git-scm.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -436,6 +452,7 @@ const Skills = () => {
                 href="https://github.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -454,6 +471,7 @@ const Skills = () => {
                 href="https://code.visualstudio.com"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -492,6 +510,7 @@ const Skills = () => {
                 href="https://redux.js.org"
                 className="skills__link"
                 target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

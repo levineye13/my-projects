@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 import "./Header.scss";
 import ProgressBar from "../progress-bar/ProgressBar";
+import { PATHNAME } from "../../utils/constants";
 
-const Header = function () {
+const { root, about, projects, skills } = PATHNAME;
+
+const Header = () => {
   const [isButtonActive, setButtonActive] = useState(false);
   const [isOpenMenu, setOpenMenu] = useState(false);
 
@@ -16,7 +20,12 @@ const Header = function () {
 
   return (
     <header className="header">
-      <a href="#" className="header__link-logo" target="_blank">
+      <a
+        href={root}
+        className="header__link-logo"
+        target="_blank"
+        rel="noreferrer"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="header__logo"
@@ -38,17 +47,17 @@ const Header = function () {
       >
         <ul className="header__list">
           <li className="header__item">
-            <a href="#" className="header__link header__link_active">
+            <Link to={about} className="header__link">
               Обо мне
-            </a>
+            </Link>
           </li>
           <li className="header__item">
-            <a href="#" className="header__link">
+            <a href={projects} className="header__link">
               Проекты
             </a>
           </li>
           <li className="header__item">
-            <a href="#" className="header__link">
+            <a href={skills} className="header__link">
               Навыки
             </a>
           </li>
