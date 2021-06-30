@@ -1,19 +1,31 @@
 import './Project.scss';
 
-const Project = function ({ props }) {
-  const { owner: { login }, name, description } = props;
-	const projectUrl = `https://${login}.github.io/${name}`;
+const Project = ({ props }) => {
+  const {
+    owner: { login },
+    name = '',
+    description = '',
+  } = props;
 
-	return (
-		<li className="projects__item">
-			<iframe className="projects__site" src={projectUrl}></iframe>
+  const projectUrl = `https://${login}.github.io/${name}`;
+
+  return (
+    <li className="projects__item">
+      <iframe className="projects__site" src={projectUrl} title={name} />
       <div className="projects__container">
-        <h3 className="projects__name">{ name }</h3>
-				<p className="projects__description">{ description }</p>
-				<a className="projects__link" href={projectUrl} target="_blank" rel="noreferrer">Посмотреть</a>
-			</div>
-		</li>
-	);
-}
+        <h3 className="projects__name">{name}</h3>
+        <p className="projects__description">{description}</p>
+        <a
+          className="projects__link"
+          href={projectUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Посмотреть
+        </a>
+      </div>
+    </li>
+  );
+};
 
 export default Project;

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "../redux/store";
-import { setUserData } from "./../redux/actions";
-import Header from "./header/Header";
-import Main from "./content/Main";
-import Footer from "./footer/Footer";
-import About from "./about/About";
-import { mainApi, githubApi } from "../utils/api";
-import { repos, PATHNAME } from "./../utils/constants";
-import "./App.scss";
+import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../redux/store';
+import { setUserData } from './../redux/actions';
+import Header from './header/Header';
+import Main from './content/Main';
+import Footer from './footer/Footer';
+import About from './about/About';
+import { mainApi, githubApi } from '../utils/api';
+import { repos, PATHNAME } from './../utils/constants';
+import './App.scss';
 
 const { root, about } = PATHNAME;
 

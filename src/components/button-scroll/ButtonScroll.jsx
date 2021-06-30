@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./ButtonScroll.scss";
+import React, { useState, useEffect } from 'react';
+import './ButtonScroll.scss';
 
-const ButtonScroll = ({ mix = "" }) => {
+const ButtonScroll = ({ mix = '' }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -12,9 +12,9 @@ const ButtonScroll = ({ mix = "" }) => {
       timerId = setTimeout(() => toggleVisibleButton(), 300);
     };
 
-    document.addEventListener("scroll", handleScroll);
+    document.addEventListener('scroll', handleScroll);
 
-    return () => document.removeEventListener("scroll", handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleVisibleButton = () => {
@@ -26,12 +26,12 @@ const ButtonScroll = ({ mix = "" }) => {
   };
 
   const handleClick = () =>
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
   return (
     <button
       className={`button-scroll ${mix} ${
-        isVisible ? "button-scroll_visible" : ""
+        isVisible ? 'button-scroll_visible' : ''
       }`}
       type="button"
       onClick={handleClick}

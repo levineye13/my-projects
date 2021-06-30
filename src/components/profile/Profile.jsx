@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import "./Profile.scss";
-import avatar from "./../../images/image-not-found.jpg";
-import gitImg from "./../../images/profile-git.svg";
+import React from 'react';
+import { connect } from 'react-redux';
+import './Profile.scss';
+import avatar from './../../images/image-not-found.jpg';
+import gitImg from './../../images/profile-git.svg';
 
 const Profile = ({ user }) => {
   const { name, email, avatar_url } = user;

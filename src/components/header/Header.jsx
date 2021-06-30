@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useScrollProgress } from "../../hooks/useScrollProgress";
-import ProgressBar from "../progress-bar/ProgressBar";
-import AnchorLink from "../anchor-link/AnchorLink";
-import { PATHNAME } from "../../utils/constants";
-import "./Header.scss";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useScrollProgress } from '../../hooks/useScrollProgress';
+import ProgressBar from '../progress-bar/ProgressBar';
+import AnchorLink from '../anchor-link/AnchorLink';
+import { PATHNAME } from '../../utils/constants';
+import './Header.scss';
 
 const { root, about } = PATHNAME;
 
@@ -39,12 +39,12 @@ const Header = () => {
       <button className="header__menu-button" onClick={handleClickButtonMenu}>
         <span
           className={`header__button-element ${
-            isButtonActive ? "header__button-element_active" : ""
+            isButtonActive ? 'header__button-element_active' : ''
           }`}
         />
       </button>
       <nav
-        className={`header__menu ${isOpenMenu ? "header__menu_opened" : ""}`}
+        className={`header__menu ${isOpenMenu ? 'header__menu_opened' : ''}`}
       >
         <ul className="header__list">
           <li className="header__item">

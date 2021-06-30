@@ -1,16 +1,16 @@
-import React from "react";
-import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
-import SectionTitle from "../section-title/SectionTitle";
-import { getAge } from "../../utils/utils";
-import { YANDEX_LINK, MIREA_LINK } from "../../utils/constants";
-import "./About.scss";
+import React from 'react';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import SectionTitle from '../section-title/SectionTitle';
+import { getAge } from '../../utils/utils';
+import { YANDEX_LINK, MIREA_LINK } from '../../utils/constants';
+import './About.scss';
 
-const About = ({ user, mix = "" }) => {
+const About = ({ user, mix = '' }) => {
   const { avatar_url } = user;
   const history = useHistory();
 
-  const age = getAge("1999.04.13");
+  const age = getAge('1999.04.13');
 
   return (
     <section className={`about ${mix}`}>
@@ -20,7 +20,7 @@ const About = ({ user, mix = "" }) => {
       </button>
       <p className="about__description">
         Всем привет! Я являюсь начинающим веб-разработчиком. В 2021 окончил
-        университет{" "}
+        университет{' '}
         <a
           className="about__link"
           href={MIREA_LINK}
@@ -28,9 +28,9 @@ const About = ({ user, mix = "" }) => {
           rel="noreferrer"
         >
           РТУ МИРЭА
-        </a>{" "}
+        </a>{' '}
         и получил степень бакалавра. Успешно окончил курсы Яндекс.Практикума по
-        программе{" "}
+        программе{' '}
         <a
           className="about__link"
           href={YANDEX_LINK}
@@ -38,7 +38,7 @@ const About = ({ user, mix = "" }) => {
           rel="noreferrer"
         >
           веб-разработчик.
-        </a>{" "}
+        </a>{' '}
         Увлекаюсь программированием, игрой на гитаре.
       </p>
       <div className="about__container">
@@ -48,7 +48,7 @@ const About = ({ user, mix = "" }) => {
             <p className="about__text">Языки: Русский</p>
           </li>
           <li className="about__item">
-            <p className="about__text">Возраст: {age || ""}</p>
+            <p className="about__text">Возраст: {age || ''}</p>
           </li>
           <li className="about__item">
             <p className="about__text">Образование: высшее</p>

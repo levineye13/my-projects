@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-const AnchorLink = ({ mix = "", elementToScrollId, text = "" }) => {
+const AnchorLink = ({ mix = '', elementToScrollId, text = '' }) => {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
-    const headerElement = document.querySelector(".header");
+    const headerElement = document.querySelector('.header');
     setHeaderHeight(headerElement.clientHeight);
   }, []);
 
@@ -22,7 +22,7 @@ const AnchorLink = ({ mix = "", elementToScrollId, text = "" }) => {
     window.scrollTo({
       top: elementToScrollOffset - headerHeight,
       left: 0,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
