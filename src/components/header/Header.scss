@@ -182,7 +182,8 @@ $background-color: #2b2b2b;
     }
   }
 
-  &__link {
+  &__link,
+  &__anchor-link {
     box-sizing: border-box;
     display: block;
     padding: 6px 12px;

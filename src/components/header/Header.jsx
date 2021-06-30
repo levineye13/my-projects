@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
-import "./Header.scss";
 import ProgressBar from "../progress-bar/ProgressBar";
+import AnchorLink from "../anchor-link/AnchorLink";
 import { PATHNAME } from "../../utils/constants";
+import "./Header.scss";
 
-const { root, about, projects, skills } = PATHNAME;
+const { root, about } = PATHNAME;
 
 const Header = () => {
   const [isButtonActive, setButtonActive] = useState(false);
@@ -52,14 +53,18 @@ const Header = () => {
             </Link>
           </li>
           <li className="header__item">
-            <a href={projects} className="header__link">
-              Проекты
-            </a>
+            <AnchorLink
+              mix="header__anchor-link"
+              elementToScrollId="projects"
+              text="Проекты"
+            />
           </li>
           <li className="header__item">
-            <a href={skills} className="header__link">
-              Навыки
-            </a>
+            <AnchorLink
+              mix="header__anchor-link"
+              elementToScrollId="skills"
+              text="Навыки"
+            />
           </li>
         </ul>
       </nav>
