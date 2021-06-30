@@ -2,7 +2,7 @@
   "homepage": ".",
   "name": "my-projects",
   "version": "0.1.0",
-  "description": "Мои проекты",
+  "description": "Портфолио и сборник проектов.",
   "private": true,
   "repository": {
     "type": "git",
