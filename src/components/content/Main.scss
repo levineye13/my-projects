@@ -1,16 +1,22 @@
 .content {
   background-color: #2b2b2b;
-}
 
-.content__profile {
-  width: 100%;
-  margin: 0 auto;
-}
+  &__profile {
+    width: 100%;
+    margin: 0 auto;
+  }
 
-.content__projects {
-  margin: 60px auto;
-}
+  &__projects {
+    margin: 60px auto;
+  }
 
-.content__skills {
-  margin: 60px auto 0;
+  &__skills {
+    margin: 60px auto 0;
+  }
+
+  &__button-scroll {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+  }
 }

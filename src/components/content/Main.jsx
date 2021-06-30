@@ -1,6 +1,7 @@
 import Profile from "../profile/Profile";
 import Projects from "../projects/Projects";
 import Skills from "../skills/Skills";
+import ButtonScroll from "../button-scroll/ButtonScroll";
 import "./Main.scss";
 
 const Main = ({ mix = "", projects }) => {
@@ -9,6 +10,7 @@ const Main = ({ mix = "", projects }) => {
       <Profile />
       <Projects projects={projects} />
       <Skills />
+      <ButtonScroll mix="content__button-scroll" />
     </main>
   );
 };

@@ -1,0 +1,49 @@
+.button-scroll {
+  visibility: hidden;
+  opacity: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  transition: box-shadow 0.3s, visibility 0.3s, opacity 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 3px 2px #fff;
+  }
+
+  &_visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 0;
+    border: 2px solid #fff;
+    left: 50%;
+    top: 50%;
+    border-radius: 4px;
+    transform-origin: top;
+  }
+
+  &::before {
+    $x: calc(-50% + 1px);
+    transform: translate($x, -50%) rotate(30deg);
+  }
+
+  &::after {
+    $x: calc(-50% - 1px);
+    transform: translate($x, -50%) rotate(-30deg);
+  }
+}
