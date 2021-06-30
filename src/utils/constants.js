@@ -16,3 +16,11 @@ export const repos = [
 export const HTTP_METHODS = {
   GET: 'GET',
 };
+
+export const PATHNAME = {
+  root: '/',
+  about: '/about',
+};
+
+export const YANDEX_LINK = 'https://praktikum.yandex.ru/web';
+export const MIREA_LINK = 'https://www.mirea.ru';
