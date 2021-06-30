@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import SectionTitle from "../section-title/SectionTitle";
 import { getAge } from "../../utils/utils";
-import { YANDEX_LINK } from "../../utils/constants";
+import { YANDEX_LINK, MIREA_LINK } from "../../utils/constants";
 import "./About.scss";
 
 const About = ({ user, mix = "" }) => {
@@ -20,9 +20,23 @@ const About = ({ user, mix = "" }) => {
       </button>
       <p className="about__description">
         Всем привет! Я являюсь начинающим веб-разработчиком. В 2021 окончил
-        университет РТУ МИРЭА и получил степень бакалавра. Успешно окончил курсы
-        Яндекс.Практикума по программе{" "}
-        <a className="about__link" href={YANDEX_LINK} target="_blank">
+        университет{" "}
+        <a
+          className="about__link"
+          href={MIREA_LINK}
+          target="_blank"
+          rel="noreferrer"
+        >
+          РТУ МИРЭА
+        </a>{" "}
+        и получил степень бакалавра. Успешно окончил курсы Яндекс.Практикума по
+        программе{" "}
+        <a
+          className="about__link"
+          href={YANDEX_LINK}
+          target="_blank"
+          rel="noreferrer"
+        >
           веб-разработчик.
         </a>{" "}
         Увлекаюсь программированием, игрой на гитаре.
