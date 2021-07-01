@@ -1,15 +1,12 @@
-import React from "react";
-import Project from "./../project/Project";
-import SectionTitle from "./../section-title/SectionTitle";
-import "./Projects.scss";
+import React from 'react';
+import Project from './../project/Project';
+import SectionTitle from './../section-title/SectionTitle';
+import './Projects.scss';
 
 const Projects = ({ projects }) => {
   return (
-    <section
-      className="projects section section_narrow content__projects"
-      id="projects"
-    >
-      <SectionTitle text={"Проекты"} className={"projects__section-title"} />
+    <section className="projects content__projects" id="projects">
+      <SectionTitle text={'Проекты'} className={'projects__section-title'} />
       <ul className="projects__list">
         {projects &&
           projects.map((project) => (
