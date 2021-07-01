@@ -7,6 +7,7 @@ import Header from './header/Header';
 import Main from './content/Main';
 import Footer from './footer/Footer';
 import About from './about/About';
+import Background from './background/Background';
 import { mainApi, githubApi } from '../utils/api';
 import { repos, PATHNAME } from './../utils/constants';
 import './App.scss';
@@ -62,8 +63,9 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <div className="page">
+      <div className="page">
+        <Background />
+        <div className="page__container">
           <Header />
           <Switch>
             <Route exact path={root}>

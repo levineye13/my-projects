@@ -16,3 +16,21 @@ export const getAge = (birthday) => {
 
   return currentDate.getFullYear() - birthday.getFullYear() - thisYear;
 };
+
+export const createStars = (quantityStars, starClass = '') => {
+  return new Array(quantityStars).fill(null).map(() => {
+    const star = {
+      className: '',
+      style: {
+        left: 0,
+        top: 0,
+      },
+    };
+
+    star.className = starClass;
+    star.style.left = `${Math.floor(Math.random() * 100)}%`;
+    star.style.top = `${Math.floor(Math.random() * 100)}%`;
+
+    return star;
+  });
+};

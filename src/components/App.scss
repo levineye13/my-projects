@@ -1,3 +1,37 @@
-.App {
-  background-color: #2b2b2b;
+.page {
+  background-image: linear-gradient(to bottom, #1d2a38 0%, #0a0c11 100%);
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  min-width: 300px;
+  z-index: 10;
+
+  &__container {
+    margin: 0 auto;
+    min-height: 100vh;
+    max-width: 1080px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__about {
+    padding: 0 20px;
+    flex-grow: 1;
+  }
+
+  &__content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px 0 50px;
+    flex-grow: 1;
+  }
+
+  &__footer {
+    width: 100%;
+    margin: auto auto 0;
+  }
 }
