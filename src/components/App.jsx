@@ -69,13 +69,13 @@ const App = () => {
           <Header />
           <Switch>
             <Route exact path={root}>
-              <Main mix="section page__content" projects={projects} />
+              <Main mix="page__content" projects={projects} />
             </Route>
             <Route path={about}>
-              <About mix="section page__about" />
+              <About mix="page__about" />
             </Route>
           </Switch>
-          <Footer />
+          <Footer mix="page__footer" />
         </div>
       </div>
     </Provider>
