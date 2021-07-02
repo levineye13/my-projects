@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const AnchorLink = ({ mix = '', elementToScrollId, text = '' }) => {
+const AnchorLink = ({
+  className = '',
+  elementToScrollId,
+  text = '',
+  onClick,
+}) => {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
@@ -8,7 +13,7 @@ const AnchorLink = ({ mix = '', elementToScrollId, text = '' }) => {
     setHeaderHeight(headerElement.clientHeight);
   }, []);
 
-  const handleClick = (evt) => {
+  const scrollToElement = (evt) => {
     evt.preventDefault();
 
     const elementToScroll = document.querySelector(`#${elementToScrollId}`);
@@ -26,12 +31,16 @@ const AnchorLink = ({ mix = '', elementToScrollId, text = '' }) => {
     });
   };
 
+  const handleClick = (evt) => {
+    scrollToElement(evt);
+
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <a
-      className={`anchor-link ${mix}`}
-      href={elementToScrollId}
-      onClick={handleClick}
-    >
+    <a className={className} href={elementToScrollId} onClick={handleClick}>
       {text}
     </a>
   );
