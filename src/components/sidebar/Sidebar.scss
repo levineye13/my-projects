@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+@import "../../styles/common/list-style-reset";
+@import "../../styles/mixins/position";
+
+.sidebar {
+  height: 0;
+  width: 100vw;
+  @include position(fixed, 0, 0);
+  overflow: hidden;
+  background-color: $overlay;
+  transition: height $animation-duration;
+  z-index: 200;
+
+  &_opened {
+    height: 100vh;
+  }
+
+  &__container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    padding: 20px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background-color;
+
+    @media screen and (max-width: 520px) {
+      max-width: 100%;
+    }
+  }
+
+  &__menu {
+    margin-top: 50px;
+  }
+}
