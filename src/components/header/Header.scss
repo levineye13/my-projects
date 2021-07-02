@@ -1,21 +1,9 @@
-$main-color: #fff;
-$border-color: #c7c7c7;
-$background-color: #2b2b2b;
-
-%reset-indents {
-  padding: 0;
-  margin: 0;
-}
-
-@mixin position-config($position, $top: initial, $left: initial) {
-  position: $position;
-  top: $top;
-  left: $left;
-}
+@import "../../styles/variables";
+@import "../../styles/mixins/position";
 
 .header {
   position: -webkit-sticky;
-  @include position-config(sticky, 0);
+  @include position(sticky, 0);
   box-sizing: border-box;
   padding: 10px 15px;
   border-bottom: 1px solid $border-color;
@@ -51,10 +39,10 @@ $background-color: #2b2b2b;
   }
 
   &__menu-button {
-    @extend %reset-indents;
     box-sizing: border-box;
     width: 40px;
     height: 40px;
+    padding: 0;
     border: 0;
     outline: 0;
     border-radius: 3px;
@@ -63,6 +51,7 @@ $background-color: #2b2b2b;
     align-items: center;
     cursor: pointer;
     background-color: $main-color;
+    z-index: 300;
 
     @media screen and (max-width: 720px) {
       display: flex;
@@ -77,7 +66,7 @@ $background-color: #2b2b2b;
   &__button-element {
     $element-height: 4px;
     position: relative;
-    z-index: 1000;
+    z-index: 301;
 
     &,
     &::before,
@@ -96,7 +85,7 @@ $background-color: #2b2b2b;
     &::before,
     &::after {
       content: "";
-      @include position-config(absolute, 0, 0);
+      @include position(absolute, 0, 0);
     }
 
     &::before {
@@ -117,96 +106,6 @@ $background-color: #2b2b2b;
       &::after {
         transform: rotate(-45deg);
       }
-    }
-  }
-
-  &__menu {
-    box-sizing: border-box;
-    transition: visibility 0.3s, opacity 0.3s, right 0.4s;
-
-    @media screen and (max-width: 720px) {
-      visibility: hidden;
-      opacity: 0;
-      @include position-config(absolute, calc(100% + 1px));
-      right: 100%;
-      border-bottom-left-radius: 5px;
-      border: 1px solid $border-color;
-    }
-
-    &_opened {
-      visibility: visible;
-      opacity: 1;
-      right: 0;
-    }
-  }
-
-  &__list {
-    @extend %reset-indents;
-    list-style-type: none;
-    display: flex;
-
-    @media screen and (max-width: 720px) {
-      flex-direction: column;
-    }
-  }
-
-  &__item {
-    box-sizing: border-box;
-    position: relative;
-
-    &::before {
-      content: "";
-      @include position-config(absolute, 0, 0);
-      height: 100%;
-      width: 0;
-      transition: width 0.3s;
-      background-image: linear-gradient(
-        to right,
-        #fff,
-        #c7c7c7 50%,
-        #4e4e4e 100%
-      );
-      z-index: 0;
-    }
-
-    &:hover::before {
-      width: 100%;
-    }
-
-    @media screen and (max-width: 720px) {
-      &:not(:last-child) {
-        border-bottom: 1px solid $border-color;
-      }
-    }
-  }
-
-  &__link,
-  &__anchor-link {
-    box-sizing: border-box;
-    display: block;
-    padding: 6px 12px;
-    color: $main-color;
-    font-size: 1.2em;
-    font-weight: 500;
-    line-height: 1.2;
-    text-decoration: none;
-    border: 1px solid transparent;
-    position: relative;
-    z-index: 1;
-    transition: color 0.4s;
-
-    &_active {
-      border: 1px solid $border-color;
-    }
-
-    &:hover {
-      color: $background-color;
-    }
-
-    @media screen and (max-width: 720px) {
-      padding: 10px 15px;
-      font-size: 1em;
-      line-height: 1.1;
     }
   }
 

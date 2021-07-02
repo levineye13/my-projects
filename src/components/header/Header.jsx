@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 import ProgressBar from '../progress-bar/ProgressBar';
-import AnchorLink from '../anchor-link/AnchorLink';
+import Menu from '../menu/Menu';
+import Sidebar from '..//sidebar/Sidebar';
 import { PATHNAME } from '../../utils/constants';
 import './Header.scss';
-
-const { root, about } = PATHNAME;
 
 const Header = () => {
   const [isButtonActive, setButtonActive] = useState(false);
@@ -22,7 +20,7 @@ const Header = () => {
   return (
     <header className="header">
       <a
-        href={root}
+        href={PATHNAME.root}
         className="header__link-logo"
         target="_blank"
         rel="noreferrer"
@@ -43,31 +41,8 @@ const Header = () => {
           }`}
         />
       </button>
-      <nav
-        className={`header__menu ${isOpenMenu ? 'header__menu_opened' : ''}`}
-      >
-        <ul className="header__list">
-          <li className="header__item">
-            <Link to={about} className="header__link">
-              Обо мне
-            </Link>
-          </li>
-          <li className="header__item">
-            <AnchorLink
-              mix="header__anchor-link"
-              elementToScrollId="projects"
-              text="Проекты"
-            />
-          </li>
-          <li className="header__item">
-            <AnchorLink
-              mix="header__anchor-link"
-              elementToScrollId="skills"
-              text="Навыки"
-            />
-          </li>
-        </ul>
-      </nav>
+      <Menu />
+      <Sidebar isOpen={isOpenMenu} onClose={handleClickButtonMenu} />
       <ProgressBar mix="header__progress-bar" progress={progress.percents} />
     </header>
   );
