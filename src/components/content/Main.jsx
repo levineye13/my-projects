@@ -4,11 +4,11 @@ import Skills from '../skills/Skills';
 import ButtonScroll from '../button-scroll/ButtonScroll';
 import './Main.scss';
 
-const Main = ({ mix = '', projects }) => {
+const Main = ({ mix = '' }) => {
   return (
     <main className={`content ${mix}`}>
       <Profile />
-      <Projects projects={projects} />
+      <Projects />
       <Skills />
       <ButtonScroll mix="content__button-scroll" />
     </main>

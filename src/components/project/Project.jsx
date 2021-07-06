@@ -1,11 +1,11 @@
 import './Project.scss';
 
-const Project = ({ props }) => {
+const Project = ({ project }) => {
   const {
     owner: { login },
     name = '',
     description = '',
-  } = props;
+  } = project;
 
   const projectUrl = `https://${login}.github.io/${name}`;
 
