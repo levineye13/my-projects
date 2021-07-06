@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from '../redux/store';
-import { setUserData } from './../redux/actions';
+import { useDispatch } from 'react-redux';
+import { setUser, setProjects } from './../redux/actions';
 import Header from './header/Header';
 import Main from './content/Main';
 import Footer from './footer/Footer';
@@ -15,7 +14,7 @@ import './App.scss';
 const { root, about } = PATHNAME;
 
 const App = () => {
-  const [projects, setProjects] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,50 +34,29 @@ const App = () => {
   }, []);
 
   const getUser = async (token) => {
-    try {
-      const userData = await githubApi.getUser(token);
-
-      if (userData) {
-        const { name, email, avatar_url } = userData;
-        store.dispatch(setUserData({ name, email, avatar_url }));
-      }
-    } catch (err) {
-      console.error(err);
-    }
+    dispatch(setUser({ api: githubApi, token }));
   };
 
   const getRepos = async (token) => {
-    try {
-      const projects = await githubApi.getRepositories(token);
-      const displayedProjects = projects.filter((item) =>
-        repos.includes(item.name)
-      );
-      if (displayedProjects) {
-        setProjects(displayedProjects);
-      }
-    } catch (err) {
-      console.error(err);
-    }
+    dispatch(setProjects({ api: githubApi, token, reposToDisplay: repos }));
   };
 
   return (
-    <Provider store={store}>
-      <div className="page">
-        <Background />
-        <div className="page__container">
-          <Header />
-          <Switch>
-            <Route exact path={root}>
-              <Main mix="page__content" projects={projects} />
-            </Route>
-            <Route path={about}>
-              <About mix="page__about" />
-            </Route>
-          </Switch>
-          <Footer mix="page__footer" />
-        </div>
+    <div className="page">
+      <Background />
+      <div className="page__container">
+        <Header />
+        <Switch>
+          <Route exact path={root}>
+            <Main mix="page__content" />
+          </Route>
+          <Route path={about}>
+            <About mix="page__about" />
+          </Route>
+        </Switch>
+        <Footer mix="page__footer" />
       </div>
-    </Provider>
+    </div>
   );
 };
 

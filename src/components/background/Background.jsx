@@ -12,7 +12,8 @@ const Background = () => {
 
   return (
     <div className="background">
-      {stars.length > 0 && stars.map((star) => <span {...star} />)}
+      {stars.length > 0 &&
+        stars.map((star, index) => <span {...star} key={index} />)}
     </div>
   );
 };
