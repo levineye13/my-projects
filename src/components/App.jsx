@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUser, setProjects } from './../redux/actions';
+import { setUser, getToken, setProjects } from './../redux/actions';
 import Header from './header/Header';
 import Main from './content/Main';
 import Footer from './footer/Footer';
@@ -17,27 +17,21 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { token } = await mainApi.getToken();
-
-        if (token) {
-          await getUser(token);
-          await getRepos(token);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchData();
+    dispatch(getToken({ api: mainApi, callback: getData }));
   }, []);
 
-  const getUser = async (token) => {
+  const getData = (token) => {
+    if (token) {
+      getUser(token);
+      getRepos(token);
+    }
+  };
+
+  const getUser = (token) => {
     dispatch(setUser({ api: githubApi, token }));
   };
 
-  const getRepos = async (token) => {
+  const getRepos = (token) => {
     dispatch(setProjects({ api: githubApi, token, reposToDisplay: repos }));
   };
 

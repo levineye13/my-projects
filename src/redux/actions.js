@@ -1,4 +1,4 @@
-import { SET_USER, SET_PROJECTS } from './actionTypes';
+import { SET_USER, GET_TOKEN, SET_PROJECTS } from './actionTypes';
 
 export const setUser =
   ({ api, token }) =>
@@ -13,6 +13,21 @@ export const setUser =
         avatarUrl: user.avatar_url,
       },
     });
+  };
+
+export const getToken =
+  ({ api, callback }) =>
+  async (dispatch) => {
+    const { token } = await api.getToken();
+
+    dispatch({
+      type: GET_TOKEN,
+      payload: token,
+    });
+
+    if (typeof callback === 'function') {
+      callback(token);
+    }
   };
 
 export const setProjects =

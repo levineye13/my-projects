@@ -1,4 +1,4 @@
-import { SET_USER } from '../actionTypes';
+import { SET_USER, GET_TOKEN } from '../actionTypes';
 
 const initialState = {
   name: 'name',
@@ -10,6 +10,9 @@ export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
       return { ...state, ...action.payload };
+
+    case GET_TOKEN:
+      return { ...state, token: action.payload };
 
     default:
       return state;
