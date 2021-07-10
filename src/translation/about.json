@@ -1,0 +1,30 @@
+{
+  "ru": {
+    "title": "Обо мне",
+    "back": "Назад",
+    "description": "Всем привет! Я являюсь начинающим веб-разработчиком. В 2021 окончил университет РТУ МИРЭА и получил степень бакалавра. Успешно окончил курсы Яндекс.Практикума по программе веб-разработчик. Увлекаюсь программированием, игрой на гитаре.",
+    "language": {
+      "key": "Языки",
+      "value": "Русский"
+    },
+    "age": "Возраст",
+    "education": {
+      "key": "Образование",
+      "value": "высшее"
+    }
+  },
+  "en": {
+    "title": "About me",
+    "back": "Back",
+    "description": "Hello everyone! I am a beginner web developer. In 2021 he graduated from the University of RTU MIREA and received a bachelor's degree. Successfully graduated from Yandex.Practicum courses under the web developer program. I am fond of programming, playing the guitar.",
+    "language": {
+      "key": "Languages",
+      "value": "Russian"
+    },
+    "age": "Age",
+    "education": {
+      "key": "Education",
+      "value": "higher"
+    }
+  }
+}

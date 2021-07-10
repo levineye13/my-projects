@@ -1,4 +1,9 @@
-import { SET_USER, GET_TOKEN, SET_PROJECTS } from './actionTypes';
+import { SET_LANGUAGE, SET_USER, GET_TOKEN, SET_PROJECTS } from './actionTypes';
+
+export const setLanguage = (language) => ({
+  type: SET_LANGUAGE,
+  payload: language,
+});
 
 export const setUser =
   ({ api, token }) =>
@@ -18,7 +23,14 @@ export const setUser =
 export const getToken =
   ({ api, callback }) =>
   async (dispatch) => {
-    const { token } = await api.getToken();
+    let token = null;
+
+    try {
+      const res = await api.getToken();
+      token = res.token;
+    } catch (err) {
+      console.error(err);
+    }
 
     dispatch({
       type: GET_TOKEN,

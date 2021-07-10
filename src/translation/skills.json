@@ -1,0 +1,16 @@
+{
+  "ru": {
+    "title": "Навыки",
+    "frontend": "Фронтенд",
+    "backend": "Бэкенд",
+    "database": "Базы данных",
+    "instruments": "Инструменты"
+  },
+  "en": {
+    "title": "Skills",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "instruments": "Instruments"
+  }
+}
