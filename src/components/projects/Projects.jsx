@@ -3,16 +3,25 @@ import { useSelector } from 'react-redux';
 import Project from './../project/Project';
 import SectionTitle from './../section-title/SectionTitle';
 import './Projects.scss';
+import translationData from '../../translation';
 
 const Projects = () => {
-  const projects = useSelector((state) => state.projects);
+  const state = useSelector((state) => ({
+    projects: state.projects,
+    language: state.language,
+  }));
+
+  const translation = translationData.projects[state.language];
 
   return (
     <section className="projects content__projects" id="projects">
-      <SectionTitle text="Проекты" className="projects__section-title" />
+      <SectionTitle
+        text={translation.title}
+        className="projects__section-title"
+      />
       <ul className="projects__list">
-        {projects &&
-          projects.map((project) => (
+        {state.projects &&
+          state.projects.map((project) => (
             <Project project={project} key={project.id} />
           ))}
       </ul>

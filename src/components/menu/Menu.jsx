@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import AnchorLink from '../anchor-link/AnchorLink';
 import { PATHNAME } from '../../utils/constants';
 import './Menu.scss';
+import translationData from '../../translation';
 
 const Menu = ({ mix = '', type = 'row', callback }) => {
+  const language = useSelector((state) => state.language);
   const [isColumn, setIsColumn] = useState(false);
+
+  const translation = translationData.menu[language];
 
   useEffect(() => {
     if (type === 'column') {
@@ -36,14 +41,14 @@ const Menu = ({ mix = '', type = 'row', callback }) => {
             className="menu__link"
             onClick={handleClick}
           >
-            Обо мне
+            {translation.about}
           </Link>
         </li>
         <li className="menu__item">
           <AnchorLink
             className="menu__anchor-link"
             elementToScrollId="projects"
-            text="Проекты"
+            text={translation.projects}
             onClick={handleClick}
           />
         </li>
@@ -51,10 +56,19 @@ const Menu = ({ mix = '', type = 'row', callback }) => {
           <AnchorLink
             className="menu__anchor-link"
             elementToScrollId="skills"
-            text="Навыки"
+            text={translation.skills}
             onClick={handleClick}
           />
         </li>
+        {/* <li className="menu__item"> */}
+        {/* <ul className="menu__select-list">
+            <li className="menu__select-item"></li>
+          </ul> */}
+        <select className="" name="">
+          <option value="ru">ru</option>
+          <option value="en">en</option>
+        </select>
+        {/* </li> */}
       </ul>
     </nav>
   );
