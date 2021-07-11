@@ -24,3 +24,8 @@ export const PATHNAME = {
 
 export const YANDEX_LINK = 'https://praktikum.yandex.ru/web';
 export const MIREA_LINK = 'https://www.mirea.ru';
+
+export const LANGUAGES = {
+  ru: 'ru',
+  en: 'en',
+};
