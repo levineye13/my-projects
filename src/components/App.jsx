@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setUser, getToken, setProjects } from './../redux/actions';
+import {
+  setUser,
+  getToken,
+  setProjects,
+  setLanguage,
+} from './../redux/actions';
 import Header from './header/Header';
 import Main from './content/Main';
 import Footer from './footer/Footer';
 import About from './about/About';
 import Background from './background/Background';
 import { mainApi, githubApi } from '../utils/api';
-import { repos, PATHNAME } from './../utils/constants';
+import { repos, PATHNAME, LANGUAGES } from './../utils/constants';
 import './App.scss';
 
 const { root, about } = PATHNAME;
@@ -18,6 +23,10 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getToken({ api: mainApi, callback: getData }));
+  }, []);
+
+  useEffect(() => {
+    dispatch(setLanguage(LANGUAGES.ru));
   }, []);
 
   const getData = (token) => {
