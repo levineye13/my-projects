@@ -60,15 +60,6 @@ const Menu = ({ mix = '', type = 'row', callback }) => {
             onClick={handleClick}
           />
         </li>
-        {/* <li className="menu__item"> */}
-        {/* <ul className="menu__select-list">
-            <li className="menu__select-item"></li>
-          </ul> */}
-        <select className="" name="">
-          <option value="ru">ru</option>
-          <option value="en">en</option>
-        </select>
-        {/* </li> */}
       </ul>
     </nav>
   );
