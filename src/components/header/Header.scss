@@ -1,13 +1,14 @@
 @import "../../styles/variables";
 @import "../../styles/mixins/position";
+@import "../../styles/common/list-style-reset";
 
 .header {
+  $header: &;
   position: -webkit-sticky;
   @include position(sticky, 0);
   box-sizing: border-box;
   padding: 10px 15px;
   border-bottom: 1px solid $border-color;
-  font-family: "Inter", "Times New Roman", sans-serif;
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -42,6 +43,7 @@
     box-sizing: border-box;
     width: 40px;
     height: 40px;
+    margin-left: auto;
     padding: 0;
     border: 0;
     outline: 0;
@@ -107,6 +109,100 @@
         transform: rotate(-45deg);
       }
     }
+  }
+
+  &__menu {
+    margin-left: auto;
+  }
+
+  &__language-menu {
+    margin-left: 20px;
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(158, 158, 158);
+    padding: 5px;
+    border-radius: 3px 3px 0 0;
+
+    &:hover {
+      #{$header}__language-list {
+        height: auto;
+      }
+    }
+  }
+
+  &__current-language {
+    display: block;
+    color: $main-color;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+
+    &::after {
+      content: "\25be";
+      vertical-align: middle;
+      font-size: 20px;
+    }
+  }
+
+  &__language-list {
+    @extend %list-style-reset;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height $animation-duration;
+    background-color: $overlay;
+  }
+
+  &__language-menu:hover #{$header}__language-list {
+    max-height: 200px;
+  }
+
+  &__language-item {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    background-color: rgb(158, 158, 158);
+    padding: 5px;
+    border-top: 1px solid $border-color;
+
+    &:hover {
+      box-shadow: 0 0 3px 3px $main-color inset;
+    }
+
+    &:last-child {
+      border-radius: 0 0 3px 3px;
+    }
+  }
+
+  &__language-label {
+    display: block;
+    cursor: pointer;
+  }
+
+  &__language-hidden {
+    display: none;
+
+    &:checked + .header__language-text::after {
+      content: "\2713";
+      font-size: 18px;
+    }
+  }
+
+  &__language-text {
+    display: block;
+    height: 100%;
+    color: $main-color;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 500;
+    user-select: none;
   }
 
   &__progress-bar {

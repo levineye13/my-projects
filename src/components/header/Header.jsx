@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 import ProgressBar from '../progress-bar/ProgressBar';
 import Menu from '../menu/Menu';
 import Sidebar from '..//sidebar/Sidebar';
-import { PATHNAME } from '../../utils/constants';
+import { PATHNAME, LANGUAGES } from '../../utils/constants';
+import { setLanguage } from '../../redux/actions';
 import './Header.scss';
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   const [isButtonActive, setButtonActive] = useState(false);
   const [isOpenMenu, setOpenMenu] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(LANGUAGES.ru);
 
   const progress = useScrollProgress();
 
   const handleClickButtonMenu = () => {
     setButtonActive(!isButtonActive);
     setOpenMenu(!isOpenMenu);
+  };
+
+  const handleClickLanguage = ({ target }) => {
+    setIsChecked(!isChecked);
+
+    if (target.checked) {
+      setCurrentLanguage(target.value);
+    }
+
+    const language = target.value;
+    dispatch(setLanguage(language));
   };
 
   return (
@@ -41,7 +58,38 @@ const Header = () => {
           }`}
         />
       </button>
-      <Menu />
+      <Menu mix="header__menu" />
+      <nav className="header__language-menu">
+        <span className="header__current-language">{currentLanguage}</span>
+        <ul className="header__language-list">
+          <li className="header__language-item">
+            <label className="header__language-label">
+              <input
+                type="radio"
+                className="header__language-hidden"
+                name="hidden-radio"
+                checked={!isChecked}
+                onChange={handleClickLanguage}
+                value={LANGUAGES.ru}
+              />
+              <span className="header__language-text">{LANGUAGES.ru}</span>
+            </label>
+          </li>
+          <li className="header__language-item">
+            <label className="header__language-label">
+              <input
+                type="radio"
+                className="header__language-hidden"
+                name="hidden-radio"
+                checked={isChecked}
+                onChange={handleClickLanguage}
+                value={LANGUAGES.en}
+              />
+              <span className="header__language-text">{LANGUAGES.en}</span>
+            </label>
+          </li>
+        </ul>
+      </nav>
       <Sidebar isOpen={isOpenMenu} onClose={handleClickButtonMenu} />
       <ProgressBar mix="header__progress-bar" progress={progress.percents} />
     </header>
