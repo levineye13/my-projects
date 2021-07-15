@@ -12,7 +12,9 @@ import Main from './content/Main';
 import Footer from './footer/Footer';
 import About from './about/About';
 import Background from './background/Background';
+import ProgressBar from './progress-bar/ProgressBar';
 import { mainApi, githubApi } from '../utils/api';
+import { useScrollProgress } from '../hooks/useScrollProgress';
 import { repos, PATHNAME, LANGUAGES } from './../utils/constants';
 import './App.scss';
 
@@ -20,6 +22,8 @@ const { root, about } = PATHNAME;
 
 const App = () => {
   const dispatch = useDispatch();
+
+  const progress = useScrollProgress();
 
   useEffect(() => {
     dispatch(getToken({ api: mainApi, callback: getData }));
@@ -47,6 +51,11 @@ const App = () => {
   return (
     <div className="page">
       <Background />
+      <ProgressBar
+        mix="page__progress-bar"
+        modifier="progress-bar_type_vertical"
+        progress={progress.percents}
+      />
       <div className="page__container">
         <Header />
         <Switch>

@@ -35,4 +35,10 @@
     width: 100%;
     margin: auto auto 0;
   }
+
+  &__progress-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
 }

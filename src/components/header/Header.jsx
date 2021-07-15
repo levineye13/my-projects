@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
-import ProgressBar from '../progress-bar/ProgressBar';
 import Menu from '../menu/Menu';
 import Sidebar from '..//sidebar/Sidebar';
 import { PATHNAME, LANGUAGES } from '../../utils/constants';
@@ -15,8 +14,6 @@ const Header = () => {
   const [isOpenMenu, setOpenMenu] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(LANGUAGES.ru);
-
-  const progress = useScrollProgress();
 
   const handleClickButtonMenu = () => {
     setButtonActive(!isButtonActive);
@@ -91,7 +88,6 @@ const Header = () => {
         </ul>
       </nav>
       <Sidebar isOpen={isOpenMenu} onClose={handleClickButtonMenu} />
-      <ProgressBar mix="header__progress-bar" progress={progress.percents} />
     </header>
   );
 };
