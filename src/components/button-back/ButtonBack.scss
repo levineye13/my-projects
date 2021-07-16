@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.button-back {
+  display: block;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1.125em;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $main-color;
+  cursor: pointer;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 720px) {
+    font-size: 1em;
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.8em;
+  }
+}
