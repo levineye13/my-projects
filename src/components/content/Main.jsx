@@ -8,8 +8,8 @@ const Main = ({ mix = '' }) => {
   return (
     <main className={`content ${mix}`}>
       <Profile />
-      <Projects />
-      <Skills />
+      {/* <Projects />
+      <Skills /> */}
       <ButtonScroll mix="content__button-scroll" />
     </main>
   );

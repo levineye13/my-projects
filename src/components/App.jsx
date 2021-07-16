@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import {
   setUser,
   getToken,
@@ -11,6 +12,8 @@ import Header from './header/Header';
 import Main from './content/Main';
 import Footer from './footer/Footer';
 import About from './about/About';
+import Projects from './projects/Projects';
+import Skills from './skills/Skills';
 import Background from './background/Background';
 import ProgressBar from './progress-bar/ProgressBar';
 import { mainApi, githubApi } from '../utils/api';
@@ -18,7 +21,7 @@ import { useScrollProgress } from '../hooks/useScrollProgress';
 import { repos, PATHNAME, LANGUAGES } from './../utils/constants';
 import './App.scss';
 
-const { root, about } = PATHNAME;
+const { root, about, projects, skills } = PATHNAME;
 
 const App = () => {
   const dispatch = useDispatch();
@@ -64,6 +67,12 @@ const App = () => {
           </Route>
           <Route path={about}>
             <About mix="page__about" />
+          </Route>
+          <Route path={projects}>
+            <Projects mix="page__projects" />
+          </Route>
+          <Route path={skills}>
+            <Skills mix="page__skills" />
           </Route>
         </Switch>
         <Footer mix="page__footer" />
