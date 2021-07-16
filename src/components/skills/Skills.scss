@@ -36,12 +36,20 @@ $technologies: (
 .skills {
   $main: &;
 
+  &__button-scroll {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 5%;
+    left: 100%;
+  }
+
   &__section-title {
     margin-bottom: 35px;
   }
 
   &__list {
     @include list-config(0, 0, none);
+    margin-top: 20px;
   }
 
   &__item {

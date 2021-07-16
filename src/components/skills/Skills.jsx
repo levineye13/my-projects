@@ -1,20 +1,24 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import SectionTitle from '../section-title/SectionTitle';
+import ButtonBack from '../button-back/ButtonBack';
+import ButtonScroll from '../button-scroll/ButtonScroll';
 import './Skills.scss';
 import translationData from '../../translation';
 
-const Skills = () => {
+const Skills = ({ mix = '' }) => {
   const language = useSelector((state) => state.language);
 
   const translation = translationData.skills[language];
 
   return (
-    <section className="skills content__skills" id="skills">
+    <section className={`skills ${mix}`}>
       <SectionTitle
         text={translation.title}
         className="skills__section-title"
       />
+      <ButtonBack />
       <ul className="skills__list">
         <li className="skills__item">
           <h3 className="skills__subtitle">{translation.frontend}</h3>
@@ -528,6 +532,7 @@ const Skills = () => {
           </ul>
         </li>
       </ul>
+      <ButtonScroll mix="skills__button-scroll" />
     </section>
   );
 };
