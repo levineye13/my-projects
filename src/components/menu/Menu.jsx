@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import AnchorLink from '../anchor-link/AnchorLink';
+import { NavLink } from 'react-router-dom';
 import { PATHNAME } from '../../utils/constants';
 import './Menu.scss';
 import translationData from '../../translation';
@@ -36,29 +35,45 @@ const Menu = ({ mix = '', type = 'row', callback }) => {
         }`}
       >
         <li className="menu__item">
-          <Link
+          <NavLink
+            exact
+            to={PATHNAME.root}
+            className="menu__link"
+            activeClassName="menu__link_active"
+            onClick={handleClick}
+          >
+            {translation.main}
+          </NavLink>
+        </li>
+        <li className="menu__item">
+          <NavLink
             to={PATHNAME.about}
             className="menu__link"
+            activeClassName="menu__link_active"
             onClick={handleClick}
           >
             {translation.about}
-          </Link>
+          </NavLink>
         </li>
         <li className="menu__item">
-          <AnchorLink
-            className="menu__anchor-link"
-            elementToScrollId="projects"
-            text={translation.projects}
+          <NavLink
+            to={PATHNAME.projects}
+            className="menu__link"
+            activeClassName="menu__link_active"
             onClick={handleClick}
-          />
+          >
+            {translation.projects}
+          </NavLink>
         </li>
         <li className="menu__item">
-          <AnchorLink
-            className="menu__anchor-link"
-            elementToScrollId="skills"
-            text={translation.skills}
+          <NavLink
+            to={PATHNAME.skills}
+            className="menu__link"
+            activeClassName="menu__link_active"
             onClick={handleClick}
-          />
+          >
+            {translation.skills}
+          </NavLink>
         </li>
       </ul>
     </nav>
