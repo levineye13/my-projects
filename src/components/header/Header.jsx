@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useScrollProgress } from '../../hooks/useScrollProgress';
+
 import Menu from '../menu/Menu';
-import Sidebar from '..//sidebar/Sidebar';
+import Sidebar from '../sidebar/Sidebar';
 import { PATHNAME, LANGUAGES } from '../../utils/constants';
 import { setLanguage } from '../../redux/actions';
 import './Header.scss';
