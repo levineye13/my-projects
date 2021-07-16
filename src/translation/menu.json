@@ -1,10 +1,12 @@
 {
   "ru": {
+    "main": "Главная",
     "about": "Обо мне",
     "projects": "Проекты",
     "skills": "Навыки"
   },
   "en": {
+    "main": "Main",
     "about": "About me",
     "projects": "Projects",
     "skills": "Skills"

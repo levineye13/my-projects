@@ -20,6 +20,8 @@ export const HTTP_METHODS = {
 export const PATHNAME = {
   root: '/',
   about: '/about',
+  projects: '/projects',
+  skills: '/skills',
 };
 
 export const YANDEX_LINK = 'https://praktikum.yandex.ru/web';
