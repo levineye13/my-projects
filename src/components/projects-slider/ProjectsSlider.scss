@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+.projects-slider {
+  display: flex;
+  flex-direction: column;
+
+  &__indicator {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: $main-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform $animation-duration;
+
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   width: 6px;
+    //   height: 6px;
+    //   border-radius: 50%;
+    //   background-color: #1e90ff;
+    // }
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+}

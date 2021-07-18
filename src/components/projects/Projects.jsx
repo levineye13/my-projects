@@ -13,6 +13,7 @@ const Projects = ({ mix = '' }) => {
   const { projects, language } = useSelector((state) => state);
 
   const translation = translationData.projects[language];
+
   return (
     <section className={`projects ${mix}`}>
       <SectionTitle
@@ -21,10 +22,11 @@ const Projects = ({ mix = '' }) => {
       />
       <ButtonBack />
       <ul className="projects__list">
-        {projects &&
-          projects.map((project) => (
-            <Project project={project} key={project.id} />
-          ))}
+        {projects.length > 0 &&
+          projects.map((project) => {
+            project.ref = React.createRef();
+            return <Project project={project} key={project.id} />;
+          })}
       </ul>
       <ProjectsSlider mix="projects__projects-slider" />
       <ButtonScroll mix="projects__button-scroll" />

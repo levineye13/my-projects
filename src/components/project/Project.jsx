@@ -4,6 +4,7 @@ import './Project.scss';
 
 const Project = ({ project }) => {
   const {
+    id,
     owner: { login },
     name = '',
     description = '',
@@ -12,7 +13,7 @@ const Project = ({ project }) => {
   const projectUrl = `https://${login}.github.io/${name}`;
 
   return (
-    <li className="projects__item">
+    <li className="projects__item" ref={project.ref} id={id}>
       <iframe className="projects__site" src={projectUrl} title={name} />
       <div className="projects__container">
         <h3 className="projects__name">{name}</h3>
